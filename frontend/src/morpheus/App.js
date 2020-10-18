@@ -25,7 +25,7 @@ import {
   addError,
   removeUser,
   userEnterMeeting,
-  userLeftMeeting
+  userLeftMeeting,
 } from "./store/actions";
 import {
   selectRooms,
@@ -35,7 +35,7 @@ import {
   selectCurrentRoom,
   selectError,
   selectSystemSettings,
-  selectTheme
+  selectTheme,
 } from "./store/selectors";
 import {
   CurrentRoomPropType,
@@ -44,7 +44,7 @@ import {
   SettingsPropType,
   UsersPropType,
   UsersFilterPropType,
-  ErrorPropType
+  ErrorPropType,
 } from "./store/models";
 import useSocket from "./hooks/useSocket";
 import useEvents from "./hooks/useEvents";
@@ -67,7 +67,7 @@ const MorpheusApp = ({
   currentUser,
   users,
   usersFilter,
-  error
+  error,
 }) => {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isLoading, toggleLoading] = useState(true);
@@ -127,7 +127,7 @@ const MorpheusApp = ({
             onChangeFilter={(key, value) => {
               onChangeUsersFilter(key, value);
             }}
-            onInviteUser={user => {
+            onInviteUser={(user) => {
               setUserToInvite(user);
               setInviteModalOpen(true);
             }}
@@ -185,7 +185,7 @@ MorpheusApp.propTypes = {
   onUserEnterMeeting: PropTypes.func,
   onUserLeftMeeting: PropTypes.func,
   history: PropTypes.shape({
-    push: PropTypes.func.isRequired
+    push: PropTypes.func.isRequired,
   }).isRequired,
   currentRoom: CurrentRoomPropType.isRequired,
   rooms: RoomsPropType.isRequired,
@@ -193,7 +193,7 @@ MorpheusApp.propTypes = {
   users: UsersPropType.isRequired,
   usersFilter: UsersFilterPropType.isRequired,
   settings: SettingsPropType.isRequired,
-  error: ErrorPropType
+  error: ErrorPropType,
 };
 
 MorpheusApp.defaultProps = {
@@ -207,10 +207,10 @@ MorpheusApp.defaultProps = {
   onRemoveUser: () => {},
   onUserEnterMeeting: () => {},
   onUserLeftMeeting: () => {},
-  error: undefined
+  error: undefined,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   theme: selectTheme(state),
   currentRoom: selectCurrentRoom(state),
   rooms: selectRooms(state),
@@ -218,7 +218,7 @@ const mapStateToProps = state => ({
   users: selectUsers(state),
   usersFilter: selectUsersFilter(state),
   settings: selectSystemSettings(state),
-  error: selectError(state)
+  error: selectError(state),
 });
 
 const mapDispatchToProps = {
@@ -231,7 +231,7 @@ const mapDispatchToProps = {
   onAddError: addError,
   onRemoveUser: removeUser,
   onUserEnterMeeting: userEnterMeeting,
-  onUserLeftMeeting: userLeftMeeting
+  onUserLeftMeeting: userLeftMeeting,
 };
 
 export default withRouter(

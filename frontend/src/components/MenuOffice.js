@@ -12,20 +12,20 @@ import ThemeCheckbox from "./ThemeCheckbox";
 import NotificationCheckbox from "./NotificationCheckbox";
 import LanguageSwitcher from "./LanguageSwitcher";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   search: {
     position: "relative",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
     "&:hover": {
-      backgroundColor: fade(theme.palette.common.white, 0.25)
+      backgroundColor: fade(theme.palette.common.white, 0.25),
     },
     marginLeft: 0,
     width: "100%",
     [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(1),
-      width: "auto"
-    }
+      width: "auto",
+    },
   },
   searchIcon: {
     width: theme.spacing(7),
@@ -34,10 +34,10 @@ const useStyles = makeStyles(theme => ({
     pointerEvents: "none",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   inputRoot: {
-    color: "inherit"
+    color: "white",
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 7),
@@ -46,10 +46,10 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up("sm")]: {
       width: 120,
       "&:focus": {
-        width: 200
-      }
-    }
-  }
+        width: 200,
+      },
+    },
+  },
 }));
 
 const MenuOffice = ({
@@ -57,7 +57,7 @@ const MenuOffice = ({
   onChangeSettings,
   onChangeTheme,
   filter,
-  settings
+  settings,
 }) => {
   const classes = useStyles();
   const commitSearch = debounce(onChangeFilter, 300);
@@ -66,26 +66,26 @@ const MenuOffice = ({
     <>
       <div className={classes.search}>
         <div className={classes.searchIcon}>
-          <SearchIcon />
+          <SearchIcon style={{ color: 'white' }}/>
         </div>
         <InputBase
           placeholder="Search…"
           classes={{
             root: classes.inputRoot,
-            input: classes.inputInput
+            input: classes.inputInput,
           }}
           inputProps={{ "aria-label": "Search" }}
-          onChange={event => {
+          onChange={(event) => {
             commitSearch("search", event.target.value);
           }}
         />
       </div>
       <Tooltip title="Show only full room">
         <Checkbox
-          icon={<SupervisedUserCircle />}
-          checkedIcon={<SupervisedUserCircle />}
+          icon={<SupervisedUserCircle style={{ color: 'white' }}/>}
+          checkedIcon={<SupervisedUserCircle style={{ color: "lightblue" }}/>}
           checked={filter.onlyFullRoom}
-          onChange={event => {
+          onChange={(event) => {
             onChangeFilter("onlyFullRoom", event.target.checked);
           }}
         />
@@ -94,7 +94,7 @@ const MenuOffice = ({
       <LanguageSwitcher />
       <NotificationCheckbox
         isDisabled={settings.notificationDisabled}
-        onChange={event => {
+        onChange={(event) => {
           onChangeSettings("notificationDisabled", event.target.checked);
         }}
       />
@@ -107,11 +107,11 @@ MenuOffice.propTypes = {
   onChangeSettings: PropTypes.func,
   onChangeTheme: PropTypes.func,
   filter: PropTypes.shape({
-    onlyFullRoom: PropTypes.bool
+    onlyFullRoom: PropTypes.bool,
   }),
   settings: PropTypes.shape({
-    notificationDisabled: PropTypes.bool
-  })
+    notificationDisabled: PropTypes.bool,
+  }),
 };
 
 MenuOffice.defaultProps = {
@@ -119,7 +119,7 @@ MenuOffice.defaultProps = {
   onChangeSettings: () => {},
   onChangeTheme: () => {},
   filter: {},
-  settings: {}
+  settings: {},
 };
 
 export default MenuOffice;

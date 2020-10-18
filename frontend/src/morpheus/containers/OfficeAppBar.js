@@ -32,7 +32,7 @@ const OfficeAppBar = ({
   currentUser
 }) => (
   <>
-    <AppBarTitle>Matrix</AppBarTitle>
+    <AppBarTitle><img height="65px" width="115px" alt="" src="/images/logo-white.svg"/></AppBarTitle>
     <MenuOffice
       filter={officeFilter}
       onChangeFilter={onChangeOfficeFilter}

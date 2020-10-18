@@ -67,8 +67,8 @@ const LanguageSwitcher = () => {
           aria-controls="language-menu"
           aria-haspopup="true"
           onClick={ handleClick }
-        >
-          <LanguageIcon />
+          style={{ color: 'white' }}>
+          <LanguageIcon/>
         </IconButton>
       </Tooltip>
       <Menu

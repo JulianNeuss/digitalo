@@ -1,14 +1,14 @@
 import { createMuiTheme } from "@material-ui/core/styles";
-import { pink, blue } from "@material-ui/core/colors";
+import { blue, lightBlue, grey, blueGrey } from "@material-ui/core/colors";
 
 import storage from "./store/storage";
 
 export const THEMES = {
   light: "light",
-  dark: "dark"
+  dark: "dark",
 };
 
-export const toggleTheme = currentTheme => {
+export const toggleTheme = (currentTheme) => {
   const { light, dark } = THEMES;
 
   const newTheme = currentTheme === light ? dark : light;
@@ -48,15 +48,15 @@ export default {
   [THEMES.light]: createMuiTheme({
     palette: {
       primary: blue,
-      secondary: pink,
-      background: { default: "#e1f5fe" }
-    }
+      secondary: lightBlue,
+      background: { default: "#f9f9f9" },
+    },
   }),
   [THEMES.dark]: createMuiTheme({
     palette: {
-      primary: blue,
-      secondary: pink,
-      type: "dark"
-    }
-  })
+      primary: grey,
+      secondary: blueGrey,
+      type: "dark",
+    },
+  }),
 };

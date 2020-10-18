@@ -13,6 +13,7 @@ function ThemeCheckbox({ onChange }) {
         checkedIcon={<EmojiObjectsIcon />}
         checked={false}
         onChange={onChange}
+        style={{ color: 'white' }}
       />
     </Tooltip>
   );

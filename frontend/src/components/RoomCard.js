@@ -15,7 +15,9 @@ import clsx from "clsx";
 const useStyles = makeStyles(() => ({
   root: {
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
+    borderRadius: '0',
+    minHeight: '200px'
   },
   flex: {
     display: "flex",

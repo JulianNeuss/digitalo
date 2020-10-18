@@ -14,7 +14,7 @@ const MenuAuth = ({ onLogout, userName }) => {
   return (
     <>
       <Button
-        color="inherit"
+        style={{ color: 'white' }}
         onClick={event => setAnchorEl(event.currentTarget)}
       >
         {userName}

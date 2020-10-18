@@ -7,8 +7,8 @@ const useStyles = makeStyles(() => ({
   title: {
     flexGrow: 1,
     display: "flex",
-    alignItems: "center",
-  }
+    alignItems: "center"
+  },
 }));
 
 const AppBarTitle = ({ children }) => {
@@ -22,11 +22,11 @@ const AppBarTitle = ({ children }) => {
 };
 
 AppBarTitle.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 AppBarTitle.defaultProps = {
-  children: undefined
+  children: undefined,
 };
 
 export default AppBarTitle;

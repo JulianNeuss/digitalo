@@ -47,7 +47,7 @@ const NotificationCheckbox = ({ onChange, openMessageDialog, isDisabled }) => {
               });
             }
           }}
-          color="inherit"
+          style={{ color: 'white' }}
         >
           <NotificationImportant />
         </IconButton>
@@ -62,6 +62,7 @@ const NotificationCheckbox = ({ onChange, openMessageDialog, isDisabled }) => {
         checkedIcon={<NotificationsOff />}
         checked={isDisabled}
         onChange={onChange}
+        style={{ color: 'white' }}
       />
     </Tooltip>
   );

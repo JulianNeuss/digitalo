@@ -7,6 +7,8 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 
+import { isDarkTheme } from "../morpheus/Themes";
+
 import { drawerWidth } from "./Drawer";
 
 const useStyles = makeStyles(theme => ({
@@ -37,6 +39,9 @@ const useStyles = makeStyles(theme => ({
 
 const AppBar = ({ isDrawerOpen, openDrawer, children }) => {
   const classes = useStyles();
+  const isDark = isDarkTheme();
+
+  const UIAppBarBackgroundColor = isDark ? '#424242' : '#3375fd';
 
   return (
     <div className={classes.root}>
@@ -45,15 +50,15 @@ const AppBar = ({ isDrawerOpen, openDrawer, children }) => {
         className={clsx(classes.appBar, {
           [classes.appBarShift]: isDrawerOpen
         })}
-        color="inherit"
+        style={{ backgroundColor: UIAppBarBackgroundColor }}
       >
         <Toolbar>
           <IconButton
             edge="start"
             className={clsx(classes.menuButton, isDrawerOpen && classes.hide)}
-            color="inherit"
             aria-label="Menu"
             onClick={openDrawer}
+            style={{ color: 'white' }}
           >
             <MenuIcon />
           </IconButton>
