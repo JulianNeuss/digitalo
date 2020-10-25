@@ -37,7 +37,7 @@ const NotificationCheckbox = ({ onChange, openMessageDialog, isDisabled }) => {
             if (isNotificationBlocked()) {
               openMessageDialog(
                 "Notification blocked",
-                "You must unlock Matrix's notification option in your browser settings."
+                "You must unlock Digitalo's notification option in your browser settings."
               );
             } else {
               requestPermissionToNotify(hasPermission => {

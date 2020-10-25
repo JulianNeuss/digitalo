@@ -23,7 +23,7 @@ export function Login() {
     setError(err);
   });
 
-  const imageName = isDark ? "bg-dark.png" : "bg.png";
+  const imageName = isDark ? "bg.jpeg" : "bg.jpeg";
   const imageURL = `url(/images/${imageName})`;
 
   return (
@@ -40,7 +40,7 @@ export function Login() {
           >
             <div className="row h-100 justify-content-center align-items-center">
               <div className="col px-5 text-center">
-                <Logo />
+                <Logo style="margin-left: -10px"/>
                 <Title />
                 <GoogleButton isDark={isDark} />
                 {error && (

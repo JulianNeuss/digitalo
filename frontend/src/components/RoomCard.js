@@ -67,50 +67,47 @@ const RoomCard = ({ name, description, users, meetingEnabled, onEnterRoom, onEnt
 
   return (
     <Card className={classes.root}>
-      <CardActionArea
-        className={classes.contentAction}
-        onClick={() => {
-          toggleExpand(!isExpanded);
-        }}
-      >
-        <CardContent className={classes.content}>
-          <div className={classes.flex}>
-            <Typography gutterBottom variant="h5" component="h2" className={classes.content}>
-              {name}
-            </Typography>
-            {description && (
-              <Tooltip title={description}>
-                <InfoIcon className={classes.descriptionIcon} color="action" />
-              </Tooltip>
-            )}
-          </div>
-          <div className={classes.userGrid}>
-            {userToShow.map(user => (
-              <Tooltip key={user.id} title={user.name}>
-                <div
-                  className={clsx({
-                    [classes.avatarInMeeting]: user.inMeet
-                  })}
-                >
-                  <Avatar src={decodeURIComponent(user.imageUrl)} />
-                </div>
-              </Tooltip>
-            ))}
-            {totalUsersHidden > 0 && (
-              <Tooltip title={`more ${totalUsersHidden} users`}>
-                <Avatar>{`+${totalUsersHidden}`}</Avatar>
-              </Tooltip>
-            )}
-            {users.length === 0 && <div className={classes.emptyUserSpace} />}
-          </div>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary" onClick={onEnterRoom}>
-          Enter room
-        </Button>
+      <Tooltip title={'Enter room'} placement="top">
+        <CardActionArea
+          className={classes.contentAction}
+          onClick={onEnterRoom}
+        >
+          <CardContent className={classes.content}>
+            <div className={classes.flex}>
+              <Typography gutterBottom variant="h5" component="h2" className={classes.content}>
+                {name}
+              </Typography>
+              {description && (
+                <Tooltip title={description}>
+                  <InfoIcon className={classes.descriptionIcon} color="action" />
+                </Tooltip>
+              )}
+            </div>
+            <div className={classes.userGrid}>
+              {userToShow.map(user => (
+                <Tooltip key={user.id} title={user.name}>
+                  <div
+                    className={clsx({
+                      [classes.avatarInMeeting]: user.inMeet
+                    })}
+                  >
+                    <Avatar src={decodeURIComponent(user.imageUrl)} />
+                  </div>
+                </Tooltip>
+              ))}
+              {totalUsersHidden > 0 && (
+                <Tooltip title={`more ${totalUsersHidden} users`}>
+                  <Avatar>{`+${totalUsersHidden}`}</Avatar>
+                </Tooltip>
+              )}
+              {users.length === 0 && <div className={classes.emptyUserSpace} />}
+            </div>
+          </CardContent>
+        </CardActionArea>
+      </Tooltip>
+      <CardActions style={{ justifyContent: 'center' }}>
         {meetingEnabled && (
-          <Button size="small" color="primary" onClick={onEnterMeeting}>
+          <Button size="medium" color="primary" onClick={onEnterMeeting}>
             Enter meeting
           </Button>
         )}
